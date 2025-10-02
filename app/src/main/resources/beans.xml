@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="emp1" class="org.example.Employee">
+        <!-- <property name="name" value="John Doe"/>
+        <property name="id" value="12345"/> -->
+        <constructor-arg value="John Doe"/>
+        <constructor-arg value="12345"/>
+    </bean>
+
+    <bean id="emp2" class="org.example.Employee">
+        <!-- <property name="name" value="John Doe"/>
+        <property name="id" value="12345"/> -->
+        <constructor-arg value="Sam Smith"/>
+        <constructor-arg value="98765" />
+    </bean>
+
+    <bean id="someClass" class="org.example.SomeClass">
+        <!-- Setter injection -->
+        <property name="emp" ref="emp1"/>
+    </bean>
+
+    <bean id="someClass1" class="org.example.SomeClass">
+        <!-- Constructor injection -->
+        <constructor-arg ref="emp2"/>
+    </bean>
+
+    <!-- Engine dependent on Car -->
+    <bean id="engine" class="org.example.test1.Engine">
+        <!-- setter injection -->
+        <property name="type" value="V8"/>
+    </bean>
+
+    <bean id="mustangCar" class="org.example.test1.Car">
+        <!-- setter injection -->
+        <property name="model" value="Mustang"/>
+        <property name="engine" ref="engine"/>
+    </bean>
+
+    <bean id="camaroCar" class="org.example.test1.Car">
+        <!-- constructor injection -->
+        <constructor-arg ref="engine"/>
+        
+    </bean>
+
+    <!--Examplpe of @Qualifier-->
+    <bean id="car2" class="org.example.test2.Car">
+    </bean>
+
+</beans>
