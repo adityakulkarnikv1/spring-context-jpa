@@ -1,6 +1,3 @@
-## Resources
-- https://medium.com/@tareq23/creating-spring-beans-using-xml-configuration-within-the-spring-inversion-of-control-ioc-067613d7c5c7
-
 ## Adding Spring-Context to project
 ```bash
 implementation("org.springframework:spring-context:7.0.0-M9")
